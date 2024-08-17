@@ -1,0 +1,8 @@
+prefix=/home/flake/catkin_ws/install
+
+Name: connect_odom
+Description: Description of connect_odom
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

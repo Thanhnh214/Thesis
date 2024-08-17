@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization2">
+        <rosparam command="load" file="$(find connect_odom)/config/odom_data.yaml" />
+        <remap from="/odometry/filtered" to="/odom1"/>
+    </node>
+</launch>

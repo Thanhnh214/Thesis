@@ -1,0 +1,32 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="robot_namespace" default="/"/>
+  <arg name="move_forward_only" default="True"/>
+  <arg name="slam_methods" default="gmapping" doc="slam type [gmapping, cartographer, hector, karto, frontier_exploration]"/>
+  
+  <!-- For Real -->
+  <arg name="configuration_basename" default="lds_2d_real.lua"/>
+  <!-- For Gazebo -->
+  <!-- <arg name="configuration_basename" default="lds_2d_gazebo.lua"/> -->
+  
+  <arg name="open_rviz" default="false"/>
+
+  <arg name="multi_robot_name" default="/"/>
+
+
+  <!-- SLAM: Gmapping, Cartographer, Hector, Karto, Frontier_exploration, RTAB-Map -->
+  <include file="$(find control_rb)/meshes/launch/$(arg slam_methods).launch">
+    <!-- <arg name="configuration_basename" value="$(arg configuration_basename)"/> -->
+  </include>
+
+  <!-- Navigation -->
+  <!-- <include file="$(find control_rb)/launch/move_base.launch">
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include> -->
+
+  <!-- rviz -->
+  <!-- <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find control_rb)/rviz/$(arg slam_methods).rviz"/>
+  </group> -->
+</launch>

@@ -1,0 +1,18 @@
+<launch>
+    <!-- Robot Demo Description -->
+    <arg name="robot_namespace" default="/"/>
+    <arg name="multi_robot_name" default=""/>
+
+    <include file="$(find nbvplannerw)/launch/controller.launch" />
+
+    <!-- SLAM -->
+    <include file="$(find nbvplannerw)/launch/slam.launch" />
+
+    <!-- Visualize Path -->
+    <node pkg="nbvplannerw" type="nbvplannerwVisualize" name="visualizePath" output="screen" />
+
+    <!-- Rosbag Record -->
+    <node pkg="rosbag" type="record" name="rosbag_record_diag" args="record -o $(find nbvplannerw)/Experiments/Odometry
+    /cmd_vel /leftEncoder /rightEncoder /rpmLeft /rpmRight /odom /camera/imu /imu/data /imu/filtered /scan /tf /map /computedPath /pose /countArea /computationTime"/>
+
+</launch>

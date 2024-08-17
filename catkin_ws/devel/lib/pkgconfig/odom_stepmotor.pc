@@ -1,0 +1,8 @@
+prefix=/home/flake/catkin_ws/devel
+
+Name: odom_stepmotor
+Description: Description of odom_stepmotor
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

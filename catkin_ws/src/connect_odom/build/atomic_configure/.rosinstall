@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/flake/Downloads/catkin_ws/src/connect_odom/build/devel/setup.sh
